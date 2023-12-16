@@ -1,0 +1,367 @@
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  position: relative;
+  background-image: url(fondo.jpg);
+  background-size: cover;
+}
+
+.cell {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3em;
+}
+
+.cell:hover {
+  opacity: 0.5;
+}
+
+.cell.black {
+  background-color: #d18b47;
+}
+
+.cell.white {
+  background-color: #ffce9e;
+}
+
+.select {
+  filter: invert(100%);
+  animation: palpita 0.8s infinite ease-in;
+}
+
+.select2 {
+  filter: saturate(200%);
+}
+
+.tiempo {
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1em;
+  display: inline-block;
+  border: #000 1px solid;
+}
+
+p {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+#tiempoBlancas {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #000;
+}
+
+#tiempoNegras {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.cementerio {
+  display: flex;
+  font-size: 2em;
+  background-color: rgba(255, 255, 255, 0.3);
+  flex-wrap: wrap;
+}
+
+.cajaAbajo {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: start;
+  width: 20%;
+  flex-wrap: wrap;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 20px;
+}
+
+.cajaArriba {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  width: 20%;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 20px;
+}
+
+#perdidasNegras {
+  flex-wrap: wrap-reverse;
+}
+
+@keyframes animacion {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes palpita {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes palpita2 {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50vw;
+  height: 50vh;
+  margin: auto;
+  background-image: url(img.jpg);
+  background-size: cover;
+  box-shadow: 0 0 10px 1px rgba(240, 146, 24, 0.5) inset;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  flex-wrap: wrap;
+  flex-direction: column;
+  visibility: hidden;
+  z-index: 1;
+}
+
+.cerrar{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #fff;
+}
+
+#gameOver {
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-family: 'Black Ops One', arial;
+  text-align: center;
+  color: #d18b47;
+  font-size: 3em;
+  text-shadow: 0 0 100px #d18b47;
+  -webkit-text-stroke: 1px #fff;
+}
+
+#reiniciar {
+  color: #d18b47;
+  font-size: 1.5em;
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-family: 'Black Ops One', arial;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#reiniciar:hover {
+  transform: scale(1.2);
+  filter: contrast(200%);
+  transition: transform 0.5s;
+}
+
+.board {
+  box-sizing: border-box;
+  margin: 0;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  aspect-ratio: 1/1;
+  height: 98vh;
+  display: inline-grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  border: 10px ridge #333;
+  cursor: pointer;
+  animation: animacion 2s;
+}
+
+@media (max-width: 450px) {
+  .cell {
+    font-size: 1.5em;
+  }
+
+  .board {
+    height: 50%;
+  }
+}
+
+@media (min-width: 450px) and (max-width: 680px) {
+
+  .board {
+    box-sizing: border-box;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    aspect-ratio: 1/1;
+    height: 60%;
+    display: inline-grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    border: 10px ridge #333;
+    cursor: pointer;
+    animation: animacion 2s;
+  }
+
+  .cajaAbajo {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: 100%;
+    margin: 0;
+    max-height: 20%;
+    overflow: hidden;
+  }
+
+  .cajaArriba {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: 100%;
+    margin: 0;
+    max-height: 20%;
+    overflow: hidden;
+  }
+
+  .cell {
+    font-size: 1.8em;
+  }
+
+  .cementerio div {
+    flex-wrap: nowrap;
+  }
+}
+
+@media (min-width: 680px) and (max-width: 800px) {
+  .board {
+    height: 70%;
+  }
+
+  .cell {
+    font-size: 2em;
+  }
+
+  .cajaArriba {
+    width: 10%;
+  }
+
+  .cajaAbajo {
+    width: 10%;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1060px) {
+  .board {
+    height: 70%;
+  }
+
+  .cell {
+    font-size: 2em;
+  }
+
+  .cajaAbajo {
+    margin: 10px;
+    width: 20%;
+    bottom: 10%;
+  }
+
+  .cajaArriba {
+    margin: 10px;
+    width: 20%;
+    top: 10%;
+  }
+}
+
+@media (max-height: 600px) {
+  .cell {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-height: 450px) {
+  .cell {
+    font-size: 1em;
+  }
+}
+
+@media (max-height: 300px) {
+  .cell {
+    font-size: 0.5em;
+  }
+}
+
+#description {
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-family: 'Black Ops One', arial;
+  text-align: center;
+  color: #000;
+  font-size: 1.6em;
+  -webkit-text-stroke: 1px #fff;
+  margin: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+/*
+.numero {
+  margin: 5px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: green;
+  font-size: 0.4em;
+}
+
+.letra {
+  margin: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: green;
+  font-size: 0.4em;
+}*/

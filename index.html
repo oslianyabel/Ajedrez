@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Kanit&family=Ubuntu:ital,wght@0,300;1,400&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/cea45a68f0.js" crossorigin="anonymous"></script>
+    <title>Juego de Ajedrez</title>
+</head>
+
+<body>
+    <audio src="Sonidos/Blancas.mp3" id="sonidoBlancas">No se oye</audio>
+    <audio src="Sonidos/Negras.mp3" id="sonidoNegras">No se oye</audio>
+    <audio src="Sonidos/Comer.mp3" id="sonidoComer">No se oye</audio>
+    <audio src="Sonidos/Coronar.mp3" id="sonidoCoronar">No se oye</audio>
+    <audio src="Sonidos/Enroque.mp3" id="sonidoEnroque">No se oye</audio>
+    <audio src="Sonidos/Jaque.wav" id="sonidoJaque">No se oye</audio>
+    <audio src="Sonidos/Tablas.mp3" id="sonidoTablas">No se oye</audio>
+    <audio id="sonidoVictoria">
+        <source src="Sonidos/Victoria.mp3" type="audio/mpeg">
+        no se oye.
+    </audio>
+
+    <div class="contenedor">
+
+        <p id="gameOver"></p>
+        <p id="description"></p>
+        <button id="reiniciar">Volver a jugar
+            <i class="fa-solid fa-rotate-right fa-beat" style="color: #ff8000;"></i></button>
+        <button class = "cerrar"> X </button>
+    </div>
+    <div class="cajaArriba">
+        <div id="tiempoNegras" class="tiempo">
+            <i class="fa-solid fa-clock"></i>
+            <p id="timeB"> 10:00</p>
+        </div>
+        <div id="perdidasBlancas" class="cementerio"></div>
+    </div>
+    <div class="board" id="board"></div>
+    <div class="cajaAbajo">
+        <div id="perdidasNegras" class="cementerio"></div>
+        <div id="tiempoBlancas" class="tiempo">
+            <i class="fa-regular fa-clock"></i>
+            <p id="timeW"> 10:00</p>
+        </div>
+    </div>
+    <script src="main.js"></script>
+    <script src="tiempo.js"></script>
+    <script src="dinamica.js"></script>
+</body>
+
+</html>
